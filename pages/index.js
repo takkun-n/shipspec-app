@@ -212,6 +212,87 @@ export default function Home() {
   const initNavRows   = [{type:'normal',cells:['反射式磁気コンパス','１','','大航計器']},{type:'normal',cells:['サテライトコンパス','１','ＳＣ－７０','古野電気㈱']},{type:'normal',cells:['ジャイロコンパス','１','','東京計器']},{type:'normal',cells:['自動舵取機','１','ＧＣＰ','東京計器']},{type:'normal',cells:['Ｎｏ.１レーダー','１','ＦＡＲ－２０２８－ＭＡＲＫ２','古野電気㈱']},{type:'normal',cells:['Ｎｏ.２レーダー','１','ＦＡＲ－２０２８－ＭＡＲＫ２－ＢＢ','古野電気㈱']},{type:'normal',cells:['ＤＧＰＳ航法装置','１','ＧＰ－１７０','古野電気㈱']},{type:'normal',cells:['電子海図','１','','']},{type:'normal',cells:['真風向風速計','１','ＦＷ－２５０','アネオス']},{type:'normal',cells:['スピードログ','１','ＤＳ－８５','古野電気㈱']},{type:'normal',cells:['音響測深機','１','ＦＥ－８００','古野電気㈱']},{type:'normal',cells:['ＡＩＳ','１','ＦＡ－１７０','古野電気㈱']},{type:'normal',cells:['防爆トランシーバー','８','ＨＸ６００ＵＦＪＩＳ','古野電気㈱']},{type:'normal',cells:['ＥＰＩＲＢ','１','Ｔｒｏｎ６０ＡＩＳ','古野電気㈱']}];
   const initZokuguRows= [{type:'section',label:'錨・錨鎖'},{type:'normal',cells:['大錨','２','単重 約1,600㎏×2','高把駐力錨 ＡＣ-14']},{type:'normal',cells:['大錨鎖','１','38φ×450m　電接２種スタッド付メッキ','ジョイニングシャックル（開先を付ける）']},{type:'normal',cells:['係船索','１','50φ×200m　コンビロープ','']},{type:'section',label:'航海用具'},{type:'normal',cells:['舶用時計','13','操舵室・食堂・機関室・娯楽室・サロン・各居室','電池式']},{type:'normal',cells:['双眼鏡','１','50㎜×7倍（7.3度）ニコン製','']},{type:'section',label:'船灯・信号器具'},{type:'normal',cells:['マスト灯','２','ＬＥＤ 第１種２灯式','']},{type:'normal',cells:['舷灯','1対','ＬＥＤ 第１種２灯式','']},{type:'normal',cells:['号鐘','１','300㎜','']},{type:'section',label:'甲板長倉庫品'},{type:'normal',cells:['チッピングハンマー','４','300㎜','']},{type:'normal',cells:['タンクスケール（油用）','１','10m','']},{type:'section',label:'備品類'},{type:'normal',cells:['ホワイトボード','３','操舵室・食堂・機関室','アルミ製']},{type:'normal',cells:['歩み板','１','','アルミ製']}];
 
+  // ===== 追加5テーブルの初期データ =====
+  const initPipeRows = [
+    {type:'normal',cells:['貨物油管','125A〜300A','STPG370（SCH40）','','○','上甲板上暴露部（SUS304）・貨物油槽・ポンプ室内']},
+    {type:'normal',cells:['残油管','20A〜50A','STPG370（SCH40）','','','上甲板上暴露部（SUS304）・貨物油槽・ポンプ室内']},
+    {type:'normal',cells:['ビルジ管','40A〜','STPG370（SCH40）','○','','各部ビルジ・甲板長倉庫・錨鎖庫・舵機室等']},
+    {type:'normal',cells:['バラスト管','65A〜100A（吐出管200A）','STPG370（SCH40）','○','','船首水槽・脚荷水槽・その他']},
+    {type:'normal',cells:['測深管','40A〜65A','STPG370（SCH40）','○','','船首水槽・脚荷水槽・清水槽・貨物油槽・燃料油槽等']},
+    {type:'normal',cells:['空気抜管','65A〜125A','STPG370（SCH40）','','○','各タンク']},
+    {type:'normal',cells:['送油管','80A〜100A','SGP','','','各燃料油槽']},
+    {type:'normal',cells:['清水管','25A〜80A','STPG370（SCH40）','','○','各清水槽']},
+    {type:'normal',cells:['清水給水管','15A〜25A','STPG304（SCH20）','','○','賄室・浴室・洗濯室・各洗面器手洗器・便所・操舵室等']},
+    {type:'normal',cells:['排水管','25A〜100A','STPG370（SCH40）','○','','上甲板下']},
+    {type:'normal',cells:['汚物管','50A〜100A','STPG370（SCH40）','○','','便所（フランジ接手）']},
+    {type:'normal',cells:['消防兼甲板洗浄管','20A〜80A','STPG370（SCH40）','○','','上甲板・端艇甲板']},
+    {type:'normal',cells:['油圧管','10A〜40A','メーカー指定','','','揚錨機・係船機・パワークレーン等（暴露部はＳＵＳ３０４）']},
+    {type:'normal',cells:['温水管','15A〜25A','STPG304（SCH20）','','','賄室・浴室・シャワー室・各洗面器・洗濯室（ラッキング施工）']},
+    {type:'normal',cells:['ＣＯ₂消火管','20A〜','STPG370（SCH40）','','○','必要箇所']},
+    {type:'normal',cells:['空気管','20A〜','STPG370（SCH40）','','○','必要箇所']},
+    {type:'normal',cells:['電線管','50A〜200A','STPG370（SCH40）','','○','']},
+  ];
+  const initStairRows = [
+    {type:'normal',cells:['鋼製傾斜梯子','船首楼甲板－バウチョック（外）','１','400','32A SGP','船体付と機関室内の一部を除きステップを角棒（ＳＵＳ）とする']},
+    {type:'normal',cells:['','上甲板－トランク','６','600','32A SGP','']},
+    {type:'normal',cells:['','上甲板－船首楼甲板（外）','２','600','32A SGP','']},
+    {type:'normal',cells:['','上甲板－船尾楼甲板（外）','２','600','32A SGP','']},
+    {type:'normal',cells:['','船尾楼甲板－端艇甲板（外）','１','600','32A SGP','貨物油槽上のハンドレールは方舷静電防止用として一部ＳＵＳを使用']},
+    {type:'normal',cells:['','端艇甲板－航海船橋甲板（外）','２','600','32A SGP','']},
+    {type:'normal',cells:['','航海船橋甲板－羅針儀甲板','１','600','32A SGP','']},
+    {type:'normal',cells:['','船尾楼甲板－舵機室','１','600','32A SGP','']},
+    {type:'normal',cells:['鋼製直立梯子','膨張トランク上－貨物油槽','10','300','16φ丸棒','貨物油槽内は側板75×75×6A（ＳＵＳ）・ステップは16角棒（ＳＵＳ）']},
+    {type:'normal',cells:['','コンパニオン','１','300','16φ丸棒','']},
+    {type:'normal',cells:['','船首マスト','１','300','なし','']},
+    {type:'normal',cells:['','煙突','１','300','なし','ステップは16φ丸棒']},
+  ];
+  const initHandrailRows = [
+    {type:'normal',cells:['ハンドレール','上甲板','40A SGP','75×12FB','16φRB×2','貨物油槽上のハンドレールスタンション下部はダブリングを設ける。上甲板ハンドレールの一部は静電防止用としてＳＵＳを使用する。']},
+    {type:'normal',cells:['スタンション（亜鉛メッキ）','膨張トランク','32A SGP','50×12FB','16φRB×2','']},
+    {type:'normal',cells:['','船首楼甲板','32A SGP','50×12FB','16φRB×2','']},
+    {type:'normal',cells:['','船尾楼甲板','32A SGP','50×12FB','16φRB×2','']},
+    {type:'normal',cells:['','端艇甲板','25A SGP','50×12FB','16φRB×2','']},
+    {type:'normal',cells:['','航海船橋甲板','25A SGP','50×12FB','16φRB×2','']},
+    {type:'normal',cells:['','羅針儀甲板','25A SGP','50×9FB','16φRB×1','']},
+    {type:'normal',cells:['','レーダーマスト','20A SGP','20A SGP','16φRB×1','']},
+  ];
+  const initPaintRows = [
+    {type:'normal',cells:['外板　船側部','エポキシ系錆止塗料（150μ×1）バインダーコート（100μ×1）','アクリル樹脂系塗料（35μ×2＝70μ）','２','関西ペイント']},
+    {type:'normal',cells:['外板　水線部・船底部','エポキシ系錆止塗料（150μ×1）バインダーコート（100μ×1）','船底２号（75μ×2＝150μ）','２','関西ペイント']},
+    {type:'normal',cells:['船首（内面）','エポキシ系塗料（200μ×1）','－','１','']},
+    {type:'normal',cells:['船首（外面）','外板船底に同じ','外板船底に同じ','','']},
+    {type:'normal',cells:['甲板　上甲板暴露部','エポキシ系錆止塗料（150μ×1）','アクリル樹脂系塗料（35μ×2）','２','']},
+    {type:'normal',cells:['甲板　甲板機械台下','エポキシ系錆止塗料（150μ×1）','－','１','']},
+    {type:'normal',cells:['甲板　機関室囲壁頂部・甲板室頂部','エポキシ系錆止塗料（150μ×1）','アクリル樹脂系塗料（35μ×2）','２','']},
+    {type:'normal',cells:['貨物油槽（全面）','サンドブラスト後、特殊塗装（エピコンＴ－８００）メーカー監修による','','','']},
+    {type:'normal',cells:['ポンプ室　床下','エポキシ系錆止塗料（150μ×1）','－','１','サンドブラストは行わない']},
+    {type:'normal',cells:['ポンプ室　床上','エポキシ系錆止塗料（150μ×1）','油性塗料（30μ×2）','２','']},
+    {type:'normal',cells:['甲板室及び囲壁　外面','エポキシ系錆止塗料（150μ×1）','アクリル樹脂系塗料（35μ×2）','２','']},
+    {type:'normal',cells:['甲板室及び囲壁　内張のない箇所','エポキシ系錆止塗料（150μ×1）','油性塗料（30μ×2）','２','']},
+    {type:'normal',cells:['甲板室及び囲壁　内張のある箇所','エポキシ系錆止塗料（150μ×1）','－','１','']},
+    {type:'normal',cells:['ブルワーク　内面','エポキシ系錆止塗料（150μ×1）','アクリル樹脂系塗料（35μ×2）','２','']},
+    {type:'normal',cells:['マスト及び通風筒　内面','エポキシ系錆止塗料（150μ×1）','－','１','']},
+    {type:'normal',cells:['マスト及び通風筒　外面','エポキシ系錆止塗料（150μ×1）','アクリル樹脂系塗料（35μ×2）','２','']},
+    {type:'normal',cells:['煙突　内面','シリコンタイネツプライマー（25μ×1）','－','１','']},
+    {type:'normal',cells:['煙突　外面','シリコンシルバー（15μ×1）','アクリル樹脂系塗料（35μ×2）','２','']},
+    {type:'normal',cells:['甲板上艤装品　亜鉛メッキ部','ガルバナイトNo.200（20μ×1）','アクリル樹脂系塗料（35μ×1）','１','']},
+    {type:'normal',cells:['甲板上艤装品　その他','エポキシ系錆止塗料（150μ×1）','アクリル樹脂系塗料（35μ×1）','１','']},
+    {type:'normal',cells:['錨鎖庫　天井・壁・床','エポキシ系塗料（200μ×1）','－','１','']},
+    {type:'normal',cells:['機関室　天井及び壁','エポキシ系錆止塗料（150μ×1）','油性塗料（30μ×2）','２','']},
+    {type:'normal',cells:['機関室　内底板上面及び補機台','エポキシ系錆止塗料（150μ×1）','速乾デッキ（30μ×2）','２','']},
+    {type:'normal',cells:['機関室　補機台下・下部壁・底部','エポキシ系塗料（200μ×1）','－','１','']},
+    {type:'normal',cells:['タンク　清水槽','（あく抜き×2）','無溶剤清水タンク用塗料（300μ×1）','１','']},
+    {type:'normal',cells:['タンク　ＦＰＴ・船首深水槽・二重底バラスト水槽','エポキシ系塗料（150μ×2）','－','２','']},
+    {type:'normal',cells:['タンク　燃料油槽・潤滑油槽','ＣＫオイル（20μ×1）','－','１','']},
+    {type:'normal',cells:['ビルジ溜り　内面','エポキシ系塗料','','１','']},
+    {type:'normal',cells:['ＣＯ₂室　天井・壁','エポキシ系錆止塗料（150μ×1）','油性塗料（30μ×2）','２','']},
+    {type:'normal',cells:['ＣＯ₂室　床','エポキシ系錆止塗料（150μ×1）','速乾デッキ（30μ×2）','２','']},
+    {type:'normal',cells:['諸倉庫　天井・壁','エポキシ系錆止塗料（150μ×1）','油性塗料（30μ×2）','２','']},
+    {type:'normal',cells:['諸倉庫　床','エポキシ系錆止塗料（150μ×1）','速乾デッキ（30μ×2）','２','']},
+    {type:'normal',cells:['舵機室　天井・壁','エポキシ系錆止塗料（150μ×1）','油性塗料（30μ×2）','２','']},
+    {type:'normal',cells:['舵機室　床','エポキシ系錆止塗料（150μ×1）','速乾デッキ（30μ×2）','２','']},
+  ];
+
   const [dimRows,   setDimRows]   = useState(initDimRows);
   const [tankRows,  setTankRows]  = useState(initTankRows);
   const [openRows,  setOpenRows]  = useState(initOpenRows);
@@ -227,6 +308,12 @@ export default function Home() {
   const [seikyRows, setSeikyRows] = useState(initSeikyuRows);
   const [navRows,   setNavRows]   = useState(initNavRows);
   const [zokuRows,  setZokuRows]  = useState(initZokuguRows);
+  // 追加5テーブル
+  const [pipeRows,     setPipeRows]     = useState(initPipeRows);
+  const [stairRows,    setStairRows]    = useState(initStairRows);
+  const [handrailRows, setHandrailRows] = useState(initHandrailRows);
+  const [paintRows,    setPaintRows]    = useState(initPaintRows);
+  const [nav2Rows,     setNav2Rows]     = useState(initNavRows); // 航海機器は同じ初期値
 
   const goto = (n) => { setCur(n); window.scrollTo(0,0); };
 
@@ -240,6 +327,7 @@ export default function Home() {
       dimRows, tankRows, openRows, mastRows, anchRows,
       keisRows, valvRows, pumpRows, ventRows, lightRows,
       fireRows, gasRows, seikyRows, navRows, zokuRows,
+      pipeRows, stairRows, handrailRows, paintRows,
     };
     try {
       const res = await fetch('/api/generate', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
@@ -428,7 +516,7 @@ export default function Home() {
 
           {/* ===== 5: 各部の仕様② ===== */}
           {cur===5 && <div>
-            <div style={S.secH}><span style={S.num}>４②</span>各部の仕様（居住区・通風・照明・諸管・消火・倉庫）</div>
+            <div style={S.secH}><span style={S.num}>４②</span>各部の仕様（通風・照明・諸管・消火・階段・塗装）</div>
             <Card title="(13) 通風採光装置">
               <EditTable cols={['施工場所','型式','容量及び数','メーカー']} rows={ventRows} onRowsChange={setVentRows} />
             </Card>
@@ -439,10 +527,26 @@ export default function Home() {
               <Row><FG label="空冷式室外機（台数・仕様）"><Input value={d.ac_outdoor} onChange={set('ac_outdoor')} placeholder="例：４台" /></FG>
               <FG label="室内機（台数・設置箇所）"><Input value={d.ac_indoor} onChange={set('ac_indoor')} placeholder="例：１２台（操舵室、食堂、事務室、サロン、各居室）" /></FG></Row>
             </Card>
+            <Card title="(16) 諸管装置 ■ 配管仕様一覧（６列）">
+              <div style={S.note}>名称・寸法・材質規格・溶融浸せき・電気メッキ・施工場所備考の６列で管理します。</div>
+              <EditTable cols={['名称','寸法','材質・規格','溶融浸せき','電気メッキ','施工場所・備考']} rows={pipeRows} onRowsChange={setPipeRows} />
+            </Card>
             <Card title="(17) 消火装置 ■ 消火機器一覧">
               <EditTable cols={['名称','容量','数','設置場所','備考']} rows={fireRows} onRowsChange={setFireRows} />
               <div style={{fontWeight:700,fontSize:12,color:'#1b2d42',margin:'12px 0 6px'}}>■ ガス検知器・感知器</div>
               <EditTable cols={['名称','型式','数','設置場所']} rows={gasRows} onRowsChange={setGasRows} />
+            </Card>
+            <Card title="(20) ■ 鋼製傾斜梯子（６列）">
+              <div style={S.note}>区分・位置・数・巾・ハンドレール・備考の６列で管理します。</div>
+              <EditTable cols={['区分','位置','数','巾','ハンドレール','備考']} rows={stairRows} onRowsChange={setStairRows} />
+            </Card>
+            <Card title="(20) ■ ハンドレール・スタンション（６列）">
+              <div style={S.note}>区分・位置・トップレール・スタンション・横棒・備考の６列で管理します。</div>
+              <EditTable cols={['区分','位置','トップレール','スタンション','横棒','備考']} rows={handrailRows} onRowsChange={setHandrailRows} />
+            </Card>
+            <Card title="(21) 塗装（５列）">
+              <div style={S.note}>塗装箇所・下塗塗料・仕上塗料・回数・メーカー備考の５列で管理します。</div>
+              <EditTable cols={['塗装箇所','下塗・塗料（回数・膜厚）','仕上塗料（回数・膜厚）','回数','メーカー・備考']} rows={paintRows} onRowsChange={setPaintRows} />
             </Card>
             <Card title="(24) 保護亜鉛板">
               <Row cols={1}><FG label="船舶防食装置"><TA value={d.zinc_main} onChange={set('zinc_main')} rows={2} /></FG></Row>
@@ -458,7 +562,8 @@ export default function Home() {
               <div style={S.note}>救命設備・信号装置・GMDSSを一括管理。見出し行で区切られています。</div>
               <EditTable cols={['名称','材質・型式','要目','数','備考']} rows={seikyRows} onRowsChange={setSeikyRows} sectionable />
             </Card>
-            <Card title="(25) 航海機器">
+            <Card title="(25) 航海機器（４列）">
+              <div style={S.note}>品名・数量・型式適用・メーカー備考の４列で管理します。</div>
               <EditTable cols={['品名','数量','型式・適用','メーカー・備考']} rows={navRows} onRowsChange={setNavRows} />
             </Card>
             <Card title="(26) 属具及び備品">
