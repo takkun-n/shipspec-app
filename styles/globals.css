@@ -1,0 +1,8 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0d1b2a; --deep: #1b2d42; --mid: #2c4a6e;
+  --accent: #4a90c4; --gold: #c9a84c;
+  --light: #e8f0f8; --border: #ccd9e8;
+  --text: #1a2535; --muted: #5a7290;
+}
+body { font-family: 'Noto Sans JP', 'Meiryo UI', sans-serif; background: #f0f4f8; color: var(--text); }
